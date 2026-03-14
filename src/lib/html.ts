@@ -6,21 +6,18 @@ import type { Response } from 'express';
  * Wraps a React component in a standard HTML document shell.
  * Useful for simple SSR without a full templating engine.
  */
-export const document = (component: ReactElement, title: string = 'App') => {
-  const content = renderToString(component);
-
-  return `
-    <!DOCTYPE html>
+const document = (component: ReactElement, title: string = 'App') =>
+  `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <title>${title}</title>
       </head>
-      <body>${content}</body>
+      <body>${renderToString(component)}</body>
     </html>
   `.trim();
-};
 
 /**
  * Sends a rendered React component as a complete HTML document.
@@ -30,5 +27,3 @@ export const send = (res: Response, component: ReactElement, title: string = 'Ap
   const html = document(component, title);
   res.send(html);
 };
-
-export default { render: document, send };
