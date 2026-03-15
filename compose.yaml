@@ -1,16 +1,12 @@
 services:
   app:
     build: .
-    image: ljs
     volumes:
       - ./posts:/app/posts
     networks:
       - services
-      - overlay
     restart: unless-stopped
 
 networks:
   services:
-    external: true
-  overlay:
     external: true
