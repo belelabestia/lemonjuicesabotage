@@ -2,11 +2,12 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      image: ljs
     volumes:
       - ./posts:/app/posts
     networks:
       - services
+    restart: unless-stopped
 
 networks:
   services:
