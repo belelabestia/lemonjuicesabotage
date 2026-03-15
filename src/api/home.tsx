@@ -17,15 +17,15 @@ const TuiPostList = (props: Posts) => (
 
 const Home = (props: Posts) => (
   <div className="home-page">
-    <div className="title">
+    <header>
       <h1>Lemon Juice Sabotage</h1>
-      <p>Your gateway to the archives.</p>
-    </div>
+      <p>Chronicles of an anarchist dev</p>
+    </header>
 
-    <div className="content">
+    <main>
       <h2>Latest Posts:</h2>
       <TuiPostList posts={props.posts} />
-    </div>
+    </main>
   </div>
 );
 

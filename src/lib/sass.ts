@@ -1,4 +1,3 @@
-
 import * as sass from 'sass';
 import path from 'path';
 import tstd from '../tstd';
@@ -13,6 +12,7 @@ export const compile = async () => {
     );
   }
   catch (error) {
+    console.error('Sass compilation error:', error);
     return tstd.Result.error();
   }
 };
