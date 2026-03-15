@@ -1,8 +1,9 @@
 {
   "type": "module",
-  "main": "index.tsx",
+  "main": "index.ts",
   "scripts": {
-    "start": "tsx ."
+    "start": "tsx .",
+    "dev": "tsx --watch ."
   },
   "devDependencies": {
     "@types/express": "^5.0.6",

@@ -11,7 +11,8 @@ export const init = async () => {
     console.log(`Posts directory ensured at: ${POSTS_DIR}`);
 
     return tstd.Result.success();
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error initializing posts directory:', error);
     return tstd.Result.error();
   }
@@ -30,7 +31,8 @@ export const list = async () => {
         if (stat.isDirectory()) return;
 
         return file;
-      } catch (error) {
+      }
+      catch (error) {
         console.error(`Error stating file ${file}:`, error);
       }
     }));
@@ -38,7 +40,8 @@ export const list = async () => {
     return tstd.Result.success(
       fileStats.filter((item): item is string => item !== undefined)
     );
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error listing posts:', error);
     return tstd.Result.error();
   }
@@ -58,7 +61,8 @@ export const read = async (slug: string) => {
     return tstd.Result.success(
       await fs.readFile(filePath, 'utf-8')
     );
-  } catch (error) {
+  }
+  catch (error) {
     console.error(`Error reading post "${slug}":`, error);
     return tstd.Result.error();
   }

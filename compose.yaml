@@ -5,3 +5,9 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./posts:/app/posts
+    networks:
+      - services
+
+networks:
+  services:
+    external: true

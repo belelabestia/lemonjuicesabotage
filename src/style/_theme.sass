@@ -1,0 +1,94 @@
+@use 'var'
+
+body
+  background-color: var.$color-bg
+  color: var.$color-text
+  font-family: var.$font-tui-mono
+  padding: 20px
+  line-height: 1.5
+
+h1, h2, h3
+  color: var.$color-accent
+  margin-bottom: 15px
+  border-bottom: 1px solid darken(var.$color-bg, 10%)
+
+h1
+  font-size: 2em
+  border-bottom-color: var.$color-accent
+
+h2
+  font-size: 1.75em
+  border-bottom-style: dashed
+  border-bottom-color: var.$color-text
+
+h3
+  font-size: 1.5em
+  border-bottom-style: dotted
+  border-bottom-color: var.$color-text
+
+p
+  margin-bottom: 10px
+
+a
+  color: var.$color-accent
+  text-decoration: none
+
+  &:hover
+    color: lighten(var.$color-accent, 15%)
+    text-decoration: underline
+
+button
+  background-color: darken(var.$color-bg, 10%)
+  color: var.$color-text
+  border: 1px solid darken(var.$color-bg, 20%)
+  padding: 8px 15px
+  border-radius: 3px
+  cursor: pointer
+  font-family: inherit
+
+  &:hover
+    background-color: darken(var.$color-bg, 15%)
+    border-color: darken(var.$color-bg, 25%)
+
+input[type="text"],
+textarea
+  background-color: darken(var.$color-bg, 15%)
+  color: var.$color-text
+  border: 1px solid darken(var.$color-bg, 20%)
+  padding: 8px
+  border-radius: 3px
+  font-family: inherit
+
+  &:focus
+    outline: none
+    border-color: var.$color-accent
+    box-shadow: 0 0 0 2px rgba(var.$color-accent, 0.3)
+
+pre, code
+  font-family: var.$font-tui-mono
+  background-color: darken(var.$color-bg, 5%)
+  border: 1px solid darken(var.$color-bg, 10%)
+  border-radius: 3px
+  padding: 10px
+  display: block
+
+code
+  display: inline-block
+  padding: 3px 6px
+  margin: 0 2px
+  background-color: darken(var.$color-bg, 10%)
+  border: 1px solid darken(var.$color-bg, 20%)
+
+table
+  width: 100%
+  border-collapse: collapse
+  margin-bottom: 15px
+
+th, td
+  border: 1px solid darken(var.$color-bg, 10%)
+  padding: 8px
+  text-align: left
+
+th
+  background-color: darken(var.$color-bg, 10%)
+  color: var.$color-text
