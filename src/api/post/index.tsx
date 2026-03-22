@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import lib from "../lib";
+import lib from "../../lib";
 
 const Nav = () => (
   <nav>
@@ -25,5 +25,5 @@ export const post: RequestHandler = async (req, res) => {
 
   return contentResult.branch === 'error'
     ? lib.Html.send(res.status(500), <p>Error loading post '{slug}'.</p>, "Post Error")
-    : lib.Html.send(res, <Post content={contentResult.value} />, pageTitle);
+    : lib.Html.send(res, <Post content={contentResult.value} />, pageTitle, 'post');
 }

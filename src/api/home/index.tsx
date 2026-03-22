@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import lib from "../lib";
+import lib from "../../lib";
 
 type Posts = { posts: string[] };
 
@@ -7,8 +7,10 @@ const TuiPostList = (props: Posts) => (
   <ul className="tui-post-list">
     {
       props.posts.length > 0
-        ? props.posts.map(p => (
-          <li key={p}><a href={p}>{p}</a></li>
+        ? props.posts.map((p, i) => (
+          <li key={p} className={i === 0 ? 'selected' : ''}>
+            <a href={'/post/' + p}>{p}</a>
+          </li>
         ))
         : <p>No posts available.</p>
     }
@@ -34,5 +36,7 @@ export const home: RequestHandler = async (req, res) => {
 
   return postsResult.branch === 'error'
     ? lib.Html.send(res.status(500), <p>Error loading posts.</p>, "Error")
-    : lib.Html.send(res, <Home posts={postsResult.value} />, "Lemon Juice Sabotage");
+    : lib.Html.send(res, <Home posts={postsResult.value} />, "Lemon Juice Sabotage", 'home');
 };
+
+export const goHome: RequestHandler = async (req, res) => res.redirect('/home');
