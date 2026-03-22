@@ -19,7 +19,7 @@ const Home = (props: Posts) => (
   <div className="home-page">
     <header>
       <h1>Lemon Juice Sabotage</h1>
-      <p>Chronicles of an anarchist dev</p>
+      <p>humanity, anarchy, tech and music</p>
     </header>
 
     <main>
