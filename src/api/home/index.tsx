@@ -28,17 +28,21 @@ const Home = (props: Posts) => (
       <h2>Latest Posts:</h2>
       <TuiPostList posts={props.posts} />
     </main>
-    <div className="keybinding-bar">
-      <div className="keybinding-item">
-        <span className="key">↑</span> <span className="desc">Previous Post</span>
+
+    <footer>
+      <div>
+        <kbd>↑</kbd>
+        <span>Previous Post</span>
       </div>
-      <div className="keybinding-item">
-        <span className="key">↓</span> <span className="desc">Next Post</span>
+      <div>
+        <kbd>↓</kbd>
+        <span>Next Post</span>
       </div>
-      <div className="keybinding-item">
-        <span className="key">⏎ Enter</span> <span className="desc">Go to Post</span>
+      <div>
+        <kbd>⏎ Enter</kbd>
+        <span>Go to Post</span>
       </div>
-    </div>
+    </footer>
   </div>
 );
 

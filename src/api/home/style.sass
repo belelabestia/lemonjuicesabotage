@@ -1,38 +1,44 @@
 @use '../../style/var'
 
+$keybindings-bar-height: 50px
+
 .tui-post-list
   li
     padding: var.$spacing-base
   li.selected
     border: 1px solid var.$color-text
 
-// Keybinding bar styles
-.keybinding-bar
-  position: fixed
-  bottom: 0
-  left: 0
-  width: 100%
-  background-color: rgba(0, 0, 0, 0.7) // Semi-transparent dark background
-  color: white // Text color for the bar
-  padding: var.$spacing-base
-  display: flex
-  justify-content: center
-  align-items: center
-  gap: calc(var.$spacing-base * 2)
-  z-index: 1000 // Ensure it's above other content
+.home-page
+  main
+    margin-bottom: $keybindings-bar-height
 
-.keybinding-item
-  display: flex
-  align-items: center
-  gap: calc(var.$spacing-base / 2)
+  footer
+    position: fixed
+    bottom: 0
+    left: 0
+    right: 0
+    height: $keybindings-bar-height
+    background-color: #000000b3
+    color: white
+    padding: var.$spacing-base
+    display: flex
+    justify-content: center
+    align-items: center
+    gap: var.$spacing-base * 2
+    z-index: 1
 
-.key
-  font-weight: bold
-  background-color: rgba(255, 255, 255, 0.2) // Slightly transparent white background
-  color: white
-  padding: calc(var.$spacing-base / 4) var.$spacing-base / 2
-  border-radius: 4px // Small border radius
-  font-family: monospace // Monospace font for keys
+  div
+    display: flex
+    align-items: baseline
 
-.desc
-  font-size: 0.9em // Slightly smaller font for description
+  kbd
+    margin: var.$spacing-base
+    font-weight: bold
+    background-color: #ffffff33
+    color: white
+    padding: var.$spacing-xs / 2 var.$spacing-sm
+    border-radius: 4px
+    font-family: monospace
+
+  span
+    font-size: 0.9em // Slightly smaller font for description
