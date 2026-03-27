@@ -1,10 +1,10 @@
 import type { RequestHandler } from "express";
 import lib from "../../lib";
 
-type Posts = { posts: string[] };
+type Props = { posts: string[] };
 
-const TuiPostList = (props: Posts) => (
-  <ul className="tui-post-list">
+const Posts = (props: Props) => (
+  <ul className="posts tui-list">
     {
       props.posts.length > 0
         ? props.posts.map((p, i) => (
@@ -17,8 +17,8 @@ const TuiPostList = (props: Posts) => (
   </ul>
 );
 
-const Home = (props: Posts) => (
-  <div className="home-page">
+const Home = (props: Props) => (
+  <div className="home-page keybindings">
     <header>
       <h1>Lemon Juice Sabotage</h1>
       <p>humanity, anarchy, tech and music</p>
@@ -26,7 +26,7 @@ const Home = (props: Posts) => (
 
     <main>
       <h2>Latest Posts:</h2>
-      <TuiPostList posts={props.posts} />
+      <Posts posts={props.posts} />
     </main>
 
     <footer>

@@ -1,14 +1,14 @@
-@use '../../style/var'
+@use '../style/var'
 
 $keybindings-bar-height: 50px
 
-.tui-post-list
+.tui-list
   li
     padding: var.$spacing-base
   li.selected
     border: 1px solid var.$color-text
 
-.home-page
+.keybindings
   main
     margin-bottom: $keybindings-bar-height
 
@@ -36,9 +36,9 @@ $keybindings-bar-height: 50px
     font-weight: bold
     background-color: #ffffff33
     color: white
-    padding: var.$spacing-xs / 2 var.$spacing-sm
+    padding: calc(var.$spacing-xs / 2) var.$spacing-sm
     border-radius: 4px
     font-family: monospace
 
   span
-    font-size: 0.9em // Slightly smaller font for description
+    font-size: 0.9em

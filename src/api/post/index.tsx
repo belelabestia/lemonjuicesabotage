@@ -1,18 +1,22 @@
 import type { RequestHandler } from "express";
 import lib from "../../lib";
 
-const Nav = () => (
-  <nav>
-    <a href="/">Home</a>
-  </nav>
-);
-
 const Post = (props: { content: string; }) => (
-  <div className="post">
-    <Nav />
+  <div className="post keybindings">
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+
     <main>
       <lib.Md.Render content={props.content} />
     </main>
+
+    <footer>
+      <div>
+        <kbd>⌫ Backspace</kbd>
+        <span>Home</span>
+      </div>
+    </footer>
   </div>
 );
 

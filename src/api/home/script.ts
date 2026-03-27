@@ -1,7 +1,7 @@
 import { unreachable } from '../../lib/unreachable';
 
 let selectedPostIndex = 0;
-const posts = document.querySelector('.tui-post-list') ?? unreachable();
+const posts = document.querySelector('.posts') ?? unreachable();
 
 /** updates dom according to the current state */
 const update = () => {
