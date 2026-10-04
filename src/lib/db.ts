@@ -4,6 +4,21 @@ import tstd from '../tstd';
 
 const POSTS_DIR = path.join(process.cwd(), 'posts');
 
+/** the `YYYY-MM-DD` prefix of a dated post filename, or null when it has none */
+const postDate = (file: string) => /^(\d{4}-\d{2}-\d{2})_/.exec(file)?.[1] ?? null;
+
+/** orders posts newest first; dated posts lead, undated ones trail alphabetically */
+const byNewest = (a: string, b: string) => {
+  const dateA = postDate(a);
+  const dateB = postDate(b);
+
+  if (dateA && dateB) return dateB.localeCompare(dateA) || a.localeCompare(b);
+  if (dateA) return -1;
+  if (dateB) return 1;
+
+  return a.localeCompare(b);
+};
+
 /** initializes the posts directory, ensuring it exists */
 export const init = async () => {
   try {
@@ -38,7 +53,9 @@ export const list = async () => {
     }));
 
     return tstd.Result.success(
-      fileStats.filter((item): item is string => item !== undefined)
+      fileStats
+        .filter((item): item is string => item !== undefined)
+        .sort(byNewest)
     );
   }
   catch (error) {
